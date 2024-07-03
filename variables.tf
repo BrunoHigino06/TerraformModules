@@ -11,6 +11,7 @@ variable "db_instance" {
     parameter_group_name    = string
     skip_final_snapshot     = string
     db_subnet_group_name    = string
+    publicly_accessible     = string
     tags                    = map(string)
   }))
 }
