@@ -12,6 +12,7 @@ variable "db_instance" {
     skip_final_snapshot     = string
     db_subnet_group_name    = string
     publicly_accessible     = string
+    security_group_name     = list(string)
     tags                    = map(string)
   }))
 }

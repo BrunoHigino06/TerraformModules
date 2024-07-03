@@ -27,6 +27,7 @@ resource "aws_db_instance" "db_instance" {
     skip_final_snapshot     = var.db_instance[count.index].skip_final_snapshot
     db_subnet_group_name    = var.db_instance[count.index].db_subnet_group_name
     publicly_accessible     = var.db_instance[count.index].publicly_accessible
+    vpc_security_group_ids  = [for name in var.db_instance[count.index].security_group_name : data.aws_subnet.subnet[name].id]
     tags                    = merge(
                               var.db_instance[count.index].tags,
         {name               = var.db_instance[count.index].name}
